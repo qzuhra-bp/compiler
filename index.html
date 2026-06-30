@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML/CSS Compiler</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #0f172a, #1e293b);
+            color: #e2e8f0;
+            min-height: 100vh;
+            padding: 24px;
+        }
+
+        .app {
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .title {
+            margin-bottom: 20px;
+            font-size: 28px;
+            font-weight: 700;
+        }
+
+        .workspace {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .panel {
+            background: rgba(15, 23, 42, 0.9);
+            border: 1px solid rgba(148, 163, 184, 0.2);
+            border-radius: 16px;
+            padding: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+        }
+
+        .panel h2 {
+            margin: 0 0 10px;
+            font-size: 18px;
+            color: #f8fafc;
+        }
+
+        textarea {
+            width: 100%;
+            min-height: 220px;
+            border: 1px solid #475569;
+            border-radius: 12px;
+            padding: 12px;
+            background: #020617;
+            color: #f8fafc;
+            font-family: Consolas, monospace;
+            font-size: 14px;
+            resize: vertical;
+            outline: none;
+        }
+
+        textarea:focus {
+            border-color: #38bdf8;
+            box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.2);
+        }
+
+        .preview-panel {
+            grid-column: 1 / -1;
+        }
+
+        .result {
+            min-height: 260px;
+            border-radius: 12px;
+            border: 1px solid #334155;
+            padding: 16px;
+            background: #fff;
+            color: #111827;
+            overflow: auto;
+        }
+
+        @media (max-width: 768px) {
+            .workspace {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="app">
+        <h1 class="title">Live HTML/CSS Compiler</h1>
+
+        <div class="workspace">
+            <section class="panel">
+                <h2>HTML</h2>
+                <textarea id="html_area" placeholder="Введите HTML-код" oninput="onHtml()"></textarea>
+            </section>
+
+            <section class="panel">
+                <h2>CSS</h2>
+                <textarea id="html_css" placeholder="Введите CSS-код" oninput="onCss()"></textarea>
+            </section>
+
+            <section class="panel preview-panel">
+                <h2>Result</h2>
+                <div id="result" class="result"></div>
+            </section>
+        </div>
+    </div>
+
+    <script src="./script.js"></script>
+</body>
+</html>
